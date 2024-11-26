@@ -12,23 +12,20 @@ public class Main {
             System.out.println("Ошибка!");
         }
 
-        System.out.println("Task 2"); // использовал switch case, интересно, корректно ли это сделано
-        int clientDeviceYear = 2015;  // и можно ли (стоит ли) так использовать эту конструкцию в принципе?
-        switch (clientOS) {           // могу ещё раз попробовать написать уже только с if else
-            case 0:
-                System.out.println("Установите версию приложения для iOS по ссылке");
-                if (clientDeviceYear < 2015) {
-                    System.out.println("Установите облегченную версию приложения для iOS по ссылке");
-                }
-                break;
-            case 1:
-                System.out.println("Установите версию приложения для Android по ссылке");
-                if (clientDeviceYear < 2015) {
-                    System.out.println("Установите облегченную версию приложения для Android по ссылке");
-                }
-                break;
-            default:
-                System.out.println("Ошибка версии клиента!");
+        System.out.println("Task 2");
+        int clientDeviceYear = 2015;
+        if (clientOS == 0 && clientDeviceYear < 2015) {
+            System.out.println("Установите версию приложения для iOS по ссылке");
+            System.out.println("Установите облегченную версию приложения для iOS по ссылке");
+        } else if (clientOS == 0 && clientDeviceYear >= 2015) {
+            System.out.println("Установите версию приложения для iOS по ссылке");
+        } else if (clientOS == 1 && clientDeviceYear < 2015) {
+            System.out.println("Установите версию приложения для Android по ссылке");
+            System.out.println("Установите облегченную версию приложения для Android по ссылке");
+        } else if (clientOS == 1 && clientDeviceYear >= 2015) {
+            System.out.println("Установите версию приложения для Android по ссылке");
+        } else {
+            System.out.println("Ошибка версии клиента!");
         }
 
         System.out.println("Task 3");
@@ -48,21 +45,20 @@ public class Main {
         }
 
         System.out.println("Task 4");
-        int deliveryDistance = 95;
-        int deliveryTime = 0;
-        if (deliveryDistance <= 100) {
-            deliveryTime = deliveryTime + 1;
-            if (deliveryDistance > 20) {
+        {
+            int deliveryDistance = 95;
+            int deliveryTime = 1;
+            if (deliveryDistance > 100) {
+                System.out.println("Нет доставки");
+            } else if (deliveryDistance > 20 && deliveryDistance < 60) {
                 deliveryTime = deliveryTime + 1;
+                System.out.println("Доставка займет " + deliveryTime + " суток");
+            } else if (deliveryDistance > 60) {
+                deliveryTime = deliveryTime + 2;
+                System.out.println("Доставка займет " + deliveryTime + " суток");
             }
-            if (deliveryDistance > 60) {
-                deliveryTime = deliveryTime + 1;
-            }
-            System.out.println("Потребуется дней: " + deliveryTime);
-        } else {
-            System.out.println("Свыше 100 км доставки нет.");
-        }
 
+        }
         System.out.println("Task 5");
         int monthNumber = 3;
         switch (monthNumber) {
