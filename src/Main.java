@@ -13,14 +13,12 @@ public class Main {
         }
 
         System.out.println("Task 2");
-        int clientDeviceYear = 2015;
+        int clientDeviceYear = 2011;
         if (clientOS == 0 && clientDeviceYear < 2015) {
-            System.out.println("Установите версию приложения для iOS по ссылке");
             System.out.println("Установите облегченную версию приложения для iOS по ссылке");
         } else if (clientOS == 0 && clientDeviceYear >= 2015) {
             System.out.println("Установите версию приложения для iOS по ссылке");
         } else if (clientOS == 1 && clientDeviceYear < 2015) {
-            System.out.println("Установите версию приложения для Android по ссылке");
             System.out.println("Установите облегченную версию приложения для Android по ссылке");
         } else if (clientOS == 1 && clientDeviceYear >= 2015) {
             System.out.println("Установите версию приложения для Android по ссылке");
@@ -29,13 +27,10 @@ public class Main {
         }
 
         System.out.println("Task 3");
-        boolean contrast = false;
         int year = 2021;
-        if ((year % 4 == 0 && year % 100 != 0) || year % 400 == 0) {
-            contrast = true;
-        }
         if (year >= 1584) {
-            if (contrast) {
+            boolean isLeapYear = (year % 4 == 0 && year % 100 != 0) || (year % 400 == 0);
+            if (isLeapYear) {
                 System.out.println(year + " год является високосным.");
             } else {
                 System.out.println(year + " год не является високосным.");
@@ -54,8 +49,8 @@ public class Main {
                 deliveryTime = deliveryTime + 1;
                 System.out.println("Доставка займет " + deliveryTime + " суток");
             } else if (deliveryDistance > 60) {
-                deliveryTime = deliveryTime + 2;
-                System.out.println("Доставка займет " + deliveryTime + " суток");
+                deliveryTime = deliveryTime + 1;
+                System.out.println("Доставка займет " + (deliveryTime+1) + " суток");
             }
 
         }
